@@ -5,6 +5,11 @@ import { VscPlay } from "react-icons/vsc";
 
 export default ({item}) => {
 
+    let description = item.overview;
+    if(description.length > 200){
+        description = description.substring(0, 200) + '...';
+    }
+
     let firstDate = new Date(item.first_air_date);
     let firstRelease = new Date(item.release_date);
     let genres = [];
