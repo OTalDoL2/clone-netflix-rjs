@@ -11,14 +11,15 @@ export default {
     getHomeList: async () => {
         return[
             {
-                slug: 'originals', //https://api.themoviedb.org/3/discover/tv?with_network=213
-                title: 'Originais do Netflix',
-                items:await basicFetch(`/discover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`) //lista dos filmes nessa class
-            },
-            {
                 slug: 'trending', //
                 title: 'Recomendados pra Você',
                 items: await basicFetch(`/trending/all/week?language=pt-BR&api_key=${API_KEY}`) //lista dos filmes nessa class
+            },
+            {
+                slug: 'originals', //https://api.themoviedb.org/3/discover/tv?with_network=213
+                title: 'Originais do Netflix',
+                items:await basicFetch(`/discover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`) //lista dos filmes nessa class
+                //items:await basicFetch(`/person/19292/movie_credits?api_key=${API_KEY}&language=pt-BR`) //lista dos filmes nessa class
             },
             {
                 slug: 'toprated', //
@@ -40,7 +41,13 @@ export default {
                 title: 'Terror',
                 items: await basicFetch(`/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`) //lista dos filmes nessa class
             },
-            // {
+            // { 
+            //     slug: 'person', 
+            //     title: 'Sandler',
+            //     items: await basicFetch(`/person/19292/movie_credits?api_key=${API_KEY}&language=pt-BR`) //lista dos filmes nessa class
+            // }
+            //https://api.themoviedb.org/3/person/19292?api_key=${API_KEY}
+            // { /person/{person_id}/movie_credits
             //     slug: 'romance', //
             //     title: 'Romance',
             //     items: await basicFetch(`/discover/movie?with_genres=10749&language=pt-BRbr&api_key=${API_KEY}`) //lista dos filmes nessa class

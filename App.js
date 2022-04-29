@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import tmdb from './tmdb';
-import MovieRow from './components/MovieRow.js';
+import MovieRow from './components/movie-row/MovieRow';
 import './App.css';
-import FeatureMovie from './components/featureMovie';
+import FeatureMovie from './components/feature-movie/featureMovie';
 import Header from './components/header/index';
 
 export default () => {
@@ -44,23 +44,24 @@ export default () => {
   }, []);
   return (
     <div className='page'>
-
       <Header black={blackHeader} />
+    
+      <div className='stream'>
+          {featureData &&
+            <FeatureMovie item={featureData} />
+          }
 
-    {featureData &&
-      <FeatureMovie item={featureData} />
-    }
+            <section className='lists'>
+              {movieList.map((item, key)=>(
+                <MovieRow key={key} title={item.title} items={item.items} />
+              ))}
+            </section>
 
-      <section className='lists'>
-        {movieList.map((item, key)=>(
-          <MovieRow key={key} title={item.title} items={item.items} />
-        ))}
-      </section>
-
-      <footer>
-        Feito com <span role="img" aria-label="coração"> ❤️ </span> pelo @L2.Ramos 🔥 <br/>
-        Créditos principais para o TheMovieDatabase (fonte dos daos) e Bonieky Lacerda (professor e youtuber).
-      </footer>
+            <footer>
+              Feito com <span role="img" aria-label="coração"> ❤️ </span> pelo @L2.Ramos 🔥 <br/>
+              Créditos principais para o TheMovieDatabase (fonte dos daos) e Bonieky Lacerda (professor e youtuber).
+            </footer>
+      </div>
     </div>
   )
 }

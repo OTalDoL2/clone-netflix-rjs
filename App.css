@@ -5,7 +5,7 @@
 }
 
 body{
-  background-color: #111;
+  background-color: #191a23;
   color: #FFF;
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -18,4 +18,9 @@ body{
 footer{
   margin: 50px 0;
   text-align: center;
+}
+
+.stream{
+  margin-left: 200px;
+  width: 100wv;
 }
